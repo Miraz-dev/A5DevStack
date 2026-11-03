@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components {
+  .footer-link {
+    @apply text-[12px] text-slate-500 transition-colors duration-200 hover:text-pink-500;
+  }
+}
