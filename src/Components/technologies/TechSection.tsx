@@ -37,7 +37,7 @@
 
 // export default TechSection;
 
-import { use } from "react";
+import { use, useState } from "react";
 import type { Tech } from "../../Types/techTypes";
 import YourStack from "./YourStack";
 import TechCard from "./TechCard";
@@ -48,6 +48,11 @@ interface ITechPromiseProp {
 
 const TechSection = ({ techsPromise }: ITechPromiseProp) => {
   const allTechs = use(techsPromise);
+
+  const onAdd = (tech: Tech) => {
+    // setIsSelected(true);
+    console.log(tech);
+  };
 
   return (
     <section
@@ -71,7 +76,11 @@ const TechSection = ({ techsPromise }: ITechPromiseProp) => {
         {/* Technology Cards */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:col-span-2">
           {allTechs.map((singleTech) => (
-            <TechCard key={singleTech.id} singleTech={singleTech} />
+            <TechCard
+              key={singleTech.id}
+              singleTech={singleTech}
+              onAdd={onAdd}
+            />
           ))}
         </div>
 
