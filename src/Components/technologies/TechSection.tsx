@@ -66,6 +66,10 @@ const TechSection = ({ techsPromise }: ITechPromiseProp) => {
     setChoosen([]);
   };
 
+  const onRemoveTech = (techId: string) => {
+    setChoosen((prev) => prev.filter((tech) => tech.id !== techId));
+  };
+
   return (
     <section
       id="technologies"
@@ -91,6 +95,7 @@ const TechSection = ({ techsPromise }: ITechPromiseProp) => {
             <TechCard
               key={singleTech.id}
               singleTech={singleTech}
+              choosen={choosen}
               onAdd={onAdd}
             />
           ))}
@@ -98,7 +103,11 @@ const TechSection = ({ techsPromise }: ITechPromiseProp) => {
 
         {/* Your Stack Sidebar */}
         <div className="w-full lg:sticky lg:top-6">
-          <YourStack choosen={choosen} onRemove={onRemove} />
+          <YourStack
+            choosen={choosen}
+            onRemove={onRemove}
+            onRemoveTech={onRemoveTech}
+          />
         </div>
       </div>
     </section>

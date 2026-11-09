@@ -3,9 +3,10 @@ import type { Tech } from "../../Types/techTypes";
 interface IStacks {
   choosen: Tech[];
   onRemove: () => void;
+  onRemoveTech: (techId: string) => void;
 }
 
-const YourStack = ({ choosen, onRemove }: IStacks) => {
+const YourStack = ({ choosen, onRemove, onRemoveTech }: IStacks) => {
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
       {/* Sidebar Header */}
@@ -62,8 +63,14 @@ const YourStack = ({ choosen, onRemove }: IStacks) => {
                   <p className="mt-1 text-xs text-slate-400">{tech.category}</p>
                 </div>
 
-                {/* Selected Indicator */}
-                <span className="text-sm font-bold text-pink-500">✓</span>
+                {/* Remove Button */}
+                <button
+                  type="button"
+                  onClick={() => onRemoveTech(tech.id)}
+                  className="shrink-0 rounded-md px-2 py-1 text-xs font-medium text-red-500 transition hover:bg-red-50 hover:text-red-600"
+                >
+                  Remove
+                </button>
               </div>
             ))}
           </div>
