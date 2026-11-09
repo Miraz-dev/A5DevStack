@@ -2,9 +2,10 @@ import type { Tech } from "../../Types/techTypes";
 
 interface IStacks {
   choosen: Tech[];
+  onRemove: () => void;
 }
 
-const YourStack = ({ choosen }: IStacks) => {
+const YourStack = ({ choosen, onRemove }: IStacks) => {
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
       {/* Sidebar Header */}
@@ -26,6 +27,7 @@ const YourStack = ({ choosen }: IStacks) => {
       <div className="mt-5">
         <button
           type="button"
+          onClick={onRemove}
           disabled={choosen.length === 0}
           className="w-full rounded-lg border border-slate-200 py-2 text-xs font-medium text-slate-500 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:text-slate-300"
         >

@@ -62,6 +62,10 @@ const TechSection = ({ techsPromise }: ITechPromiseProp) => {
     }
   };
 
+  const onRemove = () => {
+    setChoosen([]);
+  };
+
   return (
     <section
       id="technologies"
@@ -94,7 +98,7 @@ const TechSection = ({ techsPromise }: ITechPromiseProp) => {
 
         {/* Your Stack Sidebar */}
         <div className="w-full lg:sticky lg:top-6">
-          <YourStack choosen={choosen} />
+          <YourStack choosen={choosen} onRemove={onRemove} />
         </div>
       </div>
     </section>

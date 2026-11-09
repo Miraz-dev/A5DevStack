@@ -22,9 +22,10 @@ import type { Tech } from "../../Types/techTypes";
 interface ITechProp {
   singleTech: Tech;
   onAdd: (tech: Tech) => void;
+  choosen: Tech[];
 }
 
-const TechCard = ({ singleTech, onAdd }: ITechProp) => {
+const TechCard = ({ singleTech, onAdd, choosen }: ITechProp) => {
   const [isSelected, setIsSelected] = useState(false);
 
   // const handleBtn = () => {
