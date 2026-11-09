@@ -80,7 +80,10 @@ const TechSection = ({ techsPromise }: ITechPromiseProp) => {
       {/* Section Heading */}
       <div className="mb-10 text-center">
         <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-          Explore the Technologies
+          Explore the{" "}
+          <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 bg-clip-text text-transparent">
+            Technologies
+          </span>
         </h2>
 
         <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-500 sm:text-base">
