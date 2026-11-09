@@ -41,6 +41,7 @@ import { use, useState } from "react";
 import type { Tech } from "../../Types/techTypes";
 import YourStack from "./YourStack";
 import TechCard from "./TechCard";
+import { toast } from "react-toastify";
 
 interface ITechPromiseProp {
   techsPromise: Promise<Tech[]>;
@@ -49,9 +50,16 @@ interface ITechPromiseProp {
 const TechSection = ({ techsPromise }: ITechPromiseProp) => {
   const allTechs = use(techsPromise);
 
+  const [choosen, setChoosen] = useState<Tech[]>([]);
+
   const onAdd = (tech: Tech) => {
     // setIsSelected(true);
     console.log(tech);
+    const duplicate = choosen.find((handler) => handler.id === tech.id);
+    if (!duplicate) {
+      setChoosen([...choosen, tech]);
+      toast.success(`${tech.name} has been added`);
+    }
   };
 
   return (
