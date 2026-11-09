@@ -64,10 +64,12 @@ const TechSection = ({ techsPromise }: ITechPromiseProp) => {
 
   const onRemove = () => {
     setChoosen([]);
+    toast.warn("All items has been removed.");
   };
 
   const onRemoveTech = (techId: string) => {
     setChoosen((prev) => prev.filter((tech) => tech.id !== techId));
+    toast.warning(`${techId} has been Removed.`);
   };
 
   return (
