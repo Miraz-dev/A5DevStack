@@ -94,7 +94,7 @@ const TechSection = ({ techsPromise }: ITechPromiseProp) => {
 
         {/* Your Stack Sidebar */}
         <div className="w-full lg:sticky lg:top-6">
-          <YourStack />
+          <YourStack choosen={choosen} />
         </div>
       </div>
     </section>
